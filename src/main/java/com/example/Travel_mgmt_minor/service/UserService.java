@@ -32,6 +32,8 @@ public class UserService {
         User user = new User();
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setEmail(request.getEmail());
+
 
         String role = request.getRole();  // <--- get role here
 
