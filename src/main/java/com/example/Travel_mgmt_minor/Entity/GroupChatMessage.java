@@ -17,7 +17,7 @@ public class GroupChatMessage {
     private Long id;
 
     @Column(name = "group_id")
-    private String groupId;  // Should be String if DB has values like "1" and "send"
+    private String groupId;
 
     private String message;
 
@@ -25,7 +25,6 @@ public class GroupChatMessage {
 
     private LocalDateTime timestamp;
 
-    // getters/setters
 }
 
 
