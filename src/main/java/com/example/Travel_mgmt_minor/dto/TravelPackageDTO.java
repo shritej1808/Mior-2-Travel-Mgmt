@@ -1,8 +1,9 @@
 package com.example.Travel_mgmt_minor.dto;
 
-
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -13,7 +14,7 @@ public class TravelPackageDTO {
     private String companyName;
     private Double price;
     private String imageUrl;
-// <-- add this line
+    private Double averageRating;
+    private Integer reviewCount;  // New field
+    private List<ReviewDTO> reviews;
 }
-
-

@@ -81,6 +81,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/packages/**").hasAuthority("TRAVEL_COMPANY")
                         .requestMatchers(HttpMethod.PUT, "/packages/**").hasAuthority("TRAVEL_COMPANY")
                         .requestMatchers(HttpMethod.DELETE, "/packages/**").hasAuthority("TRAVEL_COMPANY")
+                        // In SecurityConfig.java, update the securityFilterChain method:
+                        .requestMatchers(HttpMethod.GET, "/reviews/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/reviews").hasAuthority("USER")
                         // Chat endpoints accessible to USER role
                         .requestMatchers("/chat/**").hasAuthority("USER")
                         // Any other request requires authentication
@@ -108,10 +111,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173"));
+        config.setAllowedOrigins(List.of("http://localhost:5173")); // Your frontend URL
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
+        config.setExposedHeaders(List.of("Authorization")); // Add this line
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

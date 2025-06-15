@@ -45,6 +45,10 @@ public class User implements UserDetails {
     )
     private Set<Authority> authorities = new HashSet<>();
 
+    @Column(nullable = false)
+    private String email;
+
+
     // Helper method to add authority
     public void addAuthority(Authority authority) {
         this.authorities.add(authority);

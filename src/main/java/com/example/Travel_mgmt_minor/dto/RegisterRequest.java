@@ -11,7 +11,18 @@ import lombok.Data;
 public class RegisterRequest {
     private String username;
     private String password;
-    private String role;  // e.g. "ROLE_TRAVEL_COMPANY" or "ROLE_USER"
+    private String role;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
+// e.g. "ROLE_TRAVEL_COMPANY" or "ROLE_USER"
 
     public String getUsername() {
         return username;
